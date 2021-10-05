@@ -1,6 +1,28 @@
 {
   "version": 2,
   "projects": {
+    "data-type": {
+      "root": "libs/data-type",
+      "sourceRoot": "libs/data-type/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/data-type/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data-type"],
+          "options": {
+            "jestConfig": "libs/data-type/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "todos": {
       "root": "apps/todos",
       "sourceRoot": "apps/todos/src",
