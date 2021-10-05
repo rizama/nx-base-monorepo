@@ -15,9 +15,11 @@
     "@nrwl/nest": "^12.9.0",
     "dotenv": "^10.0.0",
     "hbs": "^4.1.2",
+    "kafkajs": "^1.15.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.3",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@nestjs/schematics": "^7.0.0",

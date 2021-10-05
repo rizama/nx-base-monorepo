@@ -1,104 +1,177 @@
 {
-  "version": 2,
-  "projects": {
-    "auth": {
-      "root": "libs/auth",
-      "sourceRoot": "libs/auth/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/auth/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/auth"],
-          "options": {
-            "jestConfig": "libs/auth/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "data-type": {
-      "root": "libs/data-type",
-      "sourceRoot": "libs/data-type/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/data-type/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/data-type"],
-          "options": {
-            "jestConfig": "libs/data-type/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "todos": {
-      "root": "apps/todos",
-      "sourceRoot": "apps/todos/src",
-      "projectType": "application",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/todos",
-            "main": "apps/todos/src/main.ts",
-            "tsConfig": "apps/todos/tsconfig.app.json",
-            "assets": ["apps/todos/src/assets"]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/todos/src/environments/environment.ts",
-                  "with": "apps/todos/src/environments/environment.prod.ts"
+    "version": 2,
+    "projects": {
+        "auth": {
+            "root": "libs/auth",
+            "sourceRoot": "libs/auth/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": ["libs/auth/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/auth"],
+                    "options": {
+                        "jestConfig": "libs/auth/jest.config.js",
+                        "passWithNoTests": true
+                    }
                 }
-              ]
             }
-          }
         },
-        "serve": {
-          "executor": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "todos:build"
-          }
+        "case-kafka": {
+            "root": "apps/case-kafka",
+            "sourceRoot": "apps/case-kafka/src",
+            "projectType": "application",
+            "targets": {
+                "build": {
+                    "executor": "@nrwl/node:build",
+                    "outputs": ["{options.outputPath}"],
+                    "options": {
+                        "outputPath": "dist/apps/case-kafka",
+                        "main": "apps/case-kafka/src/main.ts",
+                        "tsConfig": "apps/case-kafka/tsconfig.app.json",
+                        "assets": ["apps/case-kafka/src/assets"]
+                    },
+                    "configurations": {
+                        "production": {
+                            "optimization": true,
+                            "extractLicenses": true,
+                            "inspect": false,
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/case-kafka/src/environments/environment.ts",
+                                    "with": "apps/case-kafka/src/environments/environment.prod.ts"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "executor": "@nrwl/node:execute",
+                    "options": {
+                        "buildTarget": "case-kafka:build"
+                    }
+                },
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": ["apps/case-kafka/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/apps/case-kafka"],
+                    "options": {
+                        "jestConfig": "apps/case-kafka/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
         },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/todos/**/*.ts"]
-          }
+        "data-type": {
+            "root": "libs/data-type",
+            "sourceRoot": "libs/data-type/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": ["libs/data-type/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/data-type"],
+                    "options": {
+                        "jestConfig": "libs/data-type/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
         },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/todos"],
-          "options": {
-            "jestConfig": "apps/todos/jest.config.js",
-            "passWithNoTests": true
-          }
+        "payload-message": {
+            "root": "libs/payload-message",
+            "sourceRoot": "libs/payload-message/src",
+            "projectType": "library",
+            "targets": {
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": ["libs/payload-message/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/libs/payload-message"],
+                    "options": {
+                        "jestConfig": "libs/payload-message/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
+        "todos": {
+            "root": "apps/todos",
+            "sourceRoot": "apps/todos/src",
+            "projectType": "application",
+            "targets": {
+                "build": {
+                    "executor": "@nrwl/node:build",
+                    "outputs": ["{options.outputPath}"],
+                    "options": {
+                        "outputPath": "dist/apps/todos",
+                        "main": "apps/todos/src/main.ts",
+                        "tsConfig": "apps/todos/tsconfig.app.json",
+                        "assets": ["apps/todos/src/assets"]
+                    },
+                    "configurations": {
+                        "production": {
+                            "optimization": true,
+                            "extractLicenses": true,
+                            "inspect": false,
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/todos/src/environments/environment.ts",
+                                    "with": "apps/todos/src/environments/environment.prod.ts"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "executor": "@nrwl/node:execute",
+                    "options": {
+                        "buildTarget": "todos:build"
+                    }
+                },
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": ["apps/todos/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/apps/todos"],
+                    "options": {
+                        "jestConfig": "apps/todos/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
         }
-      }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/nest"
-  },
-  "defaultProject": "todos"
+    },
+    "cli": {
+        "defaultCollection": "@nrwl/nest"
+    },
+    "defaultProject": "todos"
 }
