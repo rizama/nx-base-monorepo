@@ -1,20 +1,26 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {}
-  },
-  "exclude": ["node_modules", "tmp"]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "lib": ["es2017", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@nx-base-monorepo/auth": ["libs/auth/src/index.ts"],
+            "@nx-base-monorepo/data-type": ["libs/data-type/src/index.ts"],
+            "@nx-base-monorepo/payload-message": [
+                "libs/payload-message/src/index.ts"
+            ]
+        }
+    },
+    "exclude": ["node_modules", "tmp"]
 }
