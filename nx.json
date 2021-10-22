@@ -36,6 +36,9 @@
         "data-type": {
             "tags": []
         },
+        "nest-mongo": {
+            "tags": []
+        },
         "payload-message": {
             "tags": []
         },
