@@ -5,7 +5,11 @@
     "scripts": {
         "start": "nx serve",
         "build": "nx build",
-        "test": "nx test"
+        "test": "nx test",
+        "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+        "migration_nest_typorm:generate": "npm run build nest-typeorm && npm run typeorm migration:generate -- -n",
+        "migration_nest_typorm:run": "npm run build nest-typeorm && npm run typeorm migration:run",
+        "create-entities-index": "ts-node --pretty --project=tools/tsconfig.tools.json tools/create-entities-index.ts"
     },
     "private": true,
     "dependencies": {
@@ -13,14 +17,18 @@
         "@nestjs/core": "^7.0.0",
         "@nestjs/mongoose": "^9.0.1",
         "@nestjs/platform-express": "^7.0.0",
+        "@nestjs/typeorm": "^8.0.2",
         "@nrwl/nest": "^12.9.0",
         "dotenv": "^10.0.0",
         "hbs": "^4.1.2",
         "kafkajs": "^1.15.0",
         "mongoose": "^6.0.12",
         "reflect-metadata": "^0.1.13",
-        "rxjs": "^7.4.0",
+        "rxjs": "^7.2.0",
+        "sqlite3": "^5.0.2",
+        "ts-node": "^10.4.0",
         "tslib": "^2.0.0",
+        "typeorm": "^0.2.38",
         "uuid": "^8.3.2"
     },
     "devDependencies": {
@@ -40,6 +48,7 @@
         "@typescript-eslint/parser": "~4.28.3",
         "eslint": "7.22.0",
         "eslint-config-prettier": "8.1.0",
+        "fast-glob": "^3.2.7",
         "jest": "27.0.3",
         "prettier": "^2.3.1",
         "ts-jest": "27.0.3",

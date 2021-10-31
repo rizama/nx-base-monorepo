@@ -39,6 +39,9 @@
         "nest-mongo": {
             "tags": []
         },
+        "nest-typeorm": {
+            "tags": []
+        },
         "payload-message": {
             "tags": []
         },

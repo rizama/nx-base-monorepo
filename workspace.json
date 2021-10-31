@@ -147,6 +147,57 @@
                 }
             }
         },
+        "nest-typeorm": {
+            "root": "apps/nest-typeorm",
+            "sourceRoot": "apps/nest-typeorm/src",
+            "projectType": "application",
+            "targets": {
+                "build": {
+                    "executor": "@nrwl/node:build",
+                    "outputs": ["{options.outputPath}"],
+                    "options": {
+                        "outputPath": "dist/apps/nest-typeorm",
+                        "main": "apps/nest-typeorm/src/main.ts",
+                        "tsConfig": "apps/nest-typeorm/tsconfig.app.json",
+                        "assets": ["apps/nest-typeorm/src/assets"]
+                    },
+                    "configurations": {
+                        "production": {
+                            "optimization": true,
+                            "extractLicenses": true,
+                            "inspect": false,
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/nest-typeorm/src/environments/environment.ts",
+                                    "with": "apps/nest-typeorm/src/environments/environment.prod.ts"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "executor": "@nrwl/node:execute",
+                    "options": {
+                        "buildTarget": "nest-typeorm:build"
+                    }
+                },
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": ["apps/nest-typeorm/**/*.ts"]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/apps/nest-typeorm"],
+                    "options": {
+                        "jestConfig": "apps/nest-typeorm/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "payload-message": {
             "root": "libs/payload-message",
             "sourceRoot": "libs/payload-message/src",
