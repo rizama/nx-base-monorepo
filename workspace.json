@@ -220,6 +220,59 @@
                 }
             }
         },
+        "scraping-with-selenium": {
+            "root": "apps/scraping-with-selenium",
+            "sourceRoot": "apps/scraping-with-selenium/src",
+            "projectType": "application",
+            "targets": {
+                "build": {
+                    "executor": "@nrwl/node:build",
+                    "outputs": ["{options.outputPath}"],
+                    "options": {
+                        "outputPath": "dist/apps/scraping-with-selenium",
+                        "main": "apps/scraping-with-selenium/src/main.ts",
+                        "tsConfig": "apps/scraping-with-selenium/tsconfig.app.json",
+                        "assets": ["apps/scraping-with-selenium/src/assets"]
+                    },
+                    "configurations": {
+                        "production": {
+                            "optimization": true,
+                            "extractLicenses": true,
+                            "inspect": false,
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/scraping-with-selenium/src/environments/environment.ts",
+                                    "with": "apps/scraping-with-selenium/src/environments/environment.prod.ts"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "executor": "@nrwl/node:execute",
+                    "options": {
+                        "buildTarget": "scraping-with-selenium:build"
+                    }
+                },
+                "lint": {
+                    "executor": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": [
+                            "apps/scraping-with-selenium/**/*.ts"
+                        ]
+                    }
+                },
+                "test": {
+                    "executor": "@nrwl/jest:jest",
+                    "outputs": ["coverage/apps/scraping-with-selenium"],
+                    "options": {
+                        "jestConfig": "apps/scraping-with-selenium/jest.config.js",
+                        "passWithNoTests": true
+                    }
+                }
+            }
+        },
         "todos": {
             "root": "apps/todos",
             "sourceRoot": "apps/todos/src",
